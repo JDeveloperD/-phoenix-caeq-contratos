@@ -2,7 +2,6 @@
 const path = require("path");
 const fs = require("fs");
 const pdf = require("html-pdf");
-
 /**
  * Obtener rutas de todos los archivos html que existan en src
  * @returns {string[]}
@@ -46,18 +45,25 @@ function getHTMLFilePaths() {
 function generatePdfs() {
   const htmlFilePaths = getHTMLFilePaths();
 
-  htmlFilePaths.forEach((path) => {
+  htmlFilePaths.forEach((pathHtml) => {
     /**
      * Archivo Html
      * @type {string}
      */
-    const fileHtml = fs.readFileSync(path, "utf-8");
+    const tmplHtml = fs
+      .readFileSync(pathHtml, "utf-8")
+      .replace("../../assets/fonts", "/assets/fonts")
+      .replace(
+        "../../assets/img/phone.png",
+        `https://solera-qa.s3.amazonaws.com/phoenix/terminals/motorolo_G200-169x311.png`,
+      );
 
+    console.log(tmplHtml);
     /**
      * Ruta donde se guardará el pdf generado
      * @type {string}
      */
-    const pathPdf = path.replace("html", "pdf").replace("src", "pdf");
+    const pathPdf = pathHtml.replace("html", "pdf").replace("src", "pdf");
 
     /**
      * Opciones de creación de pdf
@@ -65,9 +71,10 @@ function generatePdfs() {
      */
     const optionsPfd = {
       format: "A4",
+      base: `file://${path.join(__dirname, "assets")}`,
     };
 
-    pdf.create(fileHtml, optionsPfd).toFile(pathPdf, function (err, res) {
+    pdf.create(tmplHtml, optionsPfd).toFile(pathPdf, function (err, res) {
       if (err) return console.error(err);
       console.log(res);
     });

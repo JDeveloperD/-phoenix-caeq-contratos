@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "html-pdf": "^3.0.1",
-    "html-pdf-node": "^1.0.8"
+    "html-pdf-node": "^1.0.8",
+    "pdf-puppeteer": "^1.1.10"
   },
   "devDependencies": {
     "prettier": "^3.0.0"
