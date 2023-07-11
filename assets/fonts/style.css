@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Telefonica-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Telefonica-Bold.eot");
+  src: url("/fonts/Telefonica-Bold.woff2") format("woff2"),
+    url("/fonts/Telefonica-Bold.woff") format("woff"),
+    url("/fonts/Telefonica-Bold.ttf") format("truetype"),
+    url("/fonts/Telefonica-Bold.svg#telefonica") format("svg");
+}
+
+@font-face {
+  font-family: "Telefonica-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Telefonica-Regular.eot");
+  src: url("/fonts/Telefonica-Regular.woff2") format("woff2"),
+    url("/fonts/Telefonica-Regular.woff") format("woff"),
+    url("/fonts/Telefonica-Regular.ttf") format("truetype"),
+    url("/fonts/Telefonica-Regular.svg#telefonica") format("svg");
+}
+
+@font-face {
+  font-family: "Telefonica-Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Telefonica-Light.eot");
+  src: url("/fonts/Telefonica-Light.woff2") format("woff2"),
+    url("/fonts/Telefonica-Light.woff") format("woff"),
+    url("/fonts/Telefonica-Light.ttf") format("truetype"),
+    url("/fonts/Telefonica-Light.svg#telefonica") format("svg");
+}
+
+@font-face {
+  font-family: "Telefonica-ExtraLight";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Telefonica-ExtraLight.eot");
+  src: url("/fonts/Telefonica-ExtraLight.woff2") format("woff2"),
+    url("/fonts/Telefonica-ExtraLight.woff") format("woff"),
+    url("/fonts/Telefonica-ExtraLight.ttf") format("truetype"),
+    url("/fonts/Telefonica-ExtraLight.svg#telefonica") format("svg");
+}
+
+@font-face {
+  font-family: "Telefonica-RegularItalic";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Telefonica-RegularItalic.eot");
+  src: url("/fonts/Telefonica-RegularItalic.woff2") format("woff2"),
+    url("/fonts/Telefonica-RegularItalic.woff") format("woff"),
+    url("/fonts/Telefonica-RegularItalic.ttf") format("truetype"),
+    url("/fonts/Telefonica-RegularItalic.svg#telefonica") format("svg");
+}
+
+@font-face {
+  font-family: "Telefonica-Hand";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Telefonica-Hand.eot");
+  src: url("/fonts/Telefonica-Hand.woff2") format("woff2"),
+    url("/fonts/Telefonica-Hand.woff") format("woff"),
+    url("/fonts/Telefonica-Hand.ttf") format("truetype"),
+    url("/fonts/Telefonica-Hand.svg#telefonica") format("svg");
+}

@@ -1,0 +1,77 @@
+//@ts-check
+const path = require("path");
+const fs = require("fs");
+const pdf = require("html-pdf");
+
+/**
+ * Obtener rutas de todos los archivos html que existan en src
+ * @returns {string[]}
+ */
+function getHTMLFilePaths() {
+  /**
+   * Path del directorio raíz src
+   * @type {string}
+   */
+  const rootPath = path.join(__dirname, "src");
+
+  /**
+   * Lista de rutas para archivos html
+   * @type {Array<string>}
+   */
+  let htmlFilePaths = [];
+
+  /**
+   * @param {string} directory
+   */
+  function exploreDirectory(directory) {
+    const files = fs.readdirSync(directory);
+
+    files.forEach((file) => {
+      const filePath = path.join(directory, file);
+      const fileStats = fs.statSync(filePath);
+
+      if (fileStats.isDirectory()) {
+        exploreDirectory(filePath); // Explorar directorios de forma recursiva
+      } else if (path.extname(file) === ".html") {
+        htmlFilePaths.push(filePath); // Agregar archivos .html a la lista
+      }
+    });
+  }
+
+  exploreDirectory(rootPath);
+
+  return htmlFilePaths;
+}
+
+function generatePdfs() {
+  const htmlFilePaths = getHTMLFilePaths();
+
+  htmlFilePaths.forEach((path) => {
+    /**
+     * Archivo Html
+     * @type {string}
+     */
+    const fileHtml = fs.readFileSync(path, "utf-8");
+
+    /**
+     * Ruta donde se guardará el pdf generado
+     * @type {string}
+     */
+    const pathPdf = path.replace("html", "pdf").replace("src", "pdf");
+
+    /**
+     * Opciones de creación de pdf
+     * @type {import('html-pdf').CreateOptions}
+     */
+    const optionsPfd = {
+      format: "A4",
+    };
+
+    pdf.create(fileHtml, optionsPfd).toFile(pathPdf, function (err, res) {
+      if (err) return console.error(err);
+      console.log(res);
+    });
+  });
+}
+
+generatePdfs();

@@ -1,0 +1,19 @@
+{
+  "name": "@phoenix/caeq-contratos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pdf": "node ./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-pdf": "^3.0.1",
+    "html-pdf-node": "^1.0.8"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
